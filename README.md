@@ -46,4 +46,57 @@ _Example of forecasting temperature and other features for the next 100 time ste
 ---
 
 ## 🗂️ Repository Structure
+FINAL_PROJECT/
+├── README.md # This file
+├── NoteBook&DATA/
+│ ├── DATA/
+│ │ ├── traindata.csv
+│ │ └── testdata.csv
+│ └── time_series_model_final.ipynb
+└── Dashboard_App/
+├── app.py
+├── main_scaler.joblib
+└── model_BiLSTM.pth
+
+
+---
+
+## ⚙️ Installation
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/Hachimboua/Dashboard_of_Wind_Turbine_Generator_Predictive_Maintenance.git
+cd FINAL_PROJECT
+```
+
+Step 2: Install Required Libraries
+Ensure Python 3.8+ is installed, then:
+
+```bash
+pip install pandas numpy scikit-learn torch matplotlib streamlit plotly joblib jupyter
+```
+🧠 How to Use the Project
+📘 Stage 1: Model Training
+Navigate to the notebook directory:
+
+```bash
+cd NoteBook&DATA
+```
+Launch Jupyter:
+```bash
+jupyter notebook
+```
+
+Run all cells in time_series_model_final.ipynb. This will generate:
+
+-model_BiLSTM.pth
+-main_scaler.joblib
+
+Move these files to the dashboard directory:
+```bash
+mv model_BiLSTM.pth main_scaler.joblib ../Dashboard_App/
+```
+
+
 
