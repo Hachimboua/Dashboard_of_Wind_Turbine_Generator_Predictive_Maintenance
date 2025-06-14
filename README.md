@@ -40,7 +40,8 @@ _Visual showing degradation curve with predicted RUL point_
 
 _Example of forecasting temperature and other features for the next 100 time steps_  
 **Image Placeholder:**  
-![Forecasting Window Example](./images/component_forecast.png)
+![Forecasting Window Example For Degradataion](./images/degradation_forecast.png)
+![Forecasting Window Example For Temperature](./images/temperature_forecast.png)
 
 ---
 
