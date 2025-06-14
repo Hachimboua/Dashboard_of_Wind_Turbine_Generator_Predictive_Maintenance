@@ -7,35 +7,35 @@ warnings.filterwarnings('ignore')
 
 class WindTurbineDegradationSimulator:
     def __init__(self):
-        # Turbine parameters
+        
         self.params = {
-            'blade_length': 40,  # m
-            'rotor_diameter': 80,  # m
-            'rated_power': 1650,  # kW
-            'max_power': 1815,  # kW
-            'mechanical_power': 1800,  # kW
-            'cut_in_speed': 0.1,  # m/s
-            'rated_speed': 12,  # m/s
-            'cut_out_speed': 20,  # m/s
-            'recut_in_speed': 18,  # m/s
-            'tip_speed': 61.8,  # m/s
+            'blade_length': 40, 
+            'rotor_diameter': 80,  
+            'rated_power': 1650,  
+            'max_power': 1815,  
+            'mechanical_power': 1800, 
+            'cut_in_speed': 0.1,  
+            'rated_speed': 12,  
+            'cut_out_speed': 20,  
+            'recut_in_speed': 18,  
+            'tip_speed': 61.8,  
             'gearbox_ratio': 84.3,
-            'generator_rpm': 1214,  # rpm
-            'synchronous_rpm': 1200,  # rpm
+            'generator_rpm': 1214,  
+            'synchronous_rpm': 1200,  
             'slip': 0.0117,
-            'air_density': 1.225,  # kg/m³
-            'rotor_tilt': 5,  # degrees
+            'air_density': 1.225,  
+            'rotor_tilt': 5,  
             'poles': 6,
-            'voltage': 600,  # V
-            'frequency': 60,  # Hz
-            'max_yaw_rate': 0.5,  # deg/sec
-            # Maintenance parameters
-            'maintenance_threshold': 0.8,  # Degradation level (0-1) to trigger maintenance
-            'maintenance_effectiveness': 0.9, # Percentage of current degradation removed
-            'time_between_maintenance': 200 # Minimum time steps between maintenance actions
+            'voltage': 600,  
+            'frequency': 60,  
+            'max_yaw_rate': 0.5,  
+            
+            'maintenance_threshold': 0.8,  
+            'maintenance_effectiveness': 0.9,
+            'time_between_maintenance': 200 
         }
         
-        # Degradation state & maintenance tracking
+        
         self.degradation_value = 0.0
         self.time_since_last_maintenance = 0
         self.maintenance_events_count = 0
