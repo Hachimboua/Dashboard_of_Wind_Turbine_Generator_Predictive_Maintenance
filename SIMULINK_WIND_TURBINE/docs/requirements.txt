@@ -1,0 +1,15 @@
+# Required to build the docs
+sphinx>=5.3.0
+
+# Optional: Theme for nice UI
+furo
+
+# Optional: Markdown support (if you're using .md docs)
+myst-parser
+
+# Optional: Auto-generate docs from docstrings
+sphinx-autodoc-typehints
+sphinx-rtd-theme
+
+# Optional: For parsing Google-style/Numpy-style docstrings
+sphinx.ext.napoleon

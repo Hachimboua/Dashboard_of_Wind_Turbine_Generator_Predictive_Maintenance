@@ -1,0 +1,15 @@
+from tensorflow.keras.models import load_model
+import numpy as np
+import sys
+import json
+
+# Load the saved model once
+model = load_model("my_lstm_model.h5")
+
+# Read JSON string from Java
+input_json = sys.argv[1]
+data = np.array(json.loads(input_json)).reshape((1, -1, 1))  # Adjust shape to your LSTM input
+
+# Predict
+prediction = model.predict(data)
+print(prediction.tolist())

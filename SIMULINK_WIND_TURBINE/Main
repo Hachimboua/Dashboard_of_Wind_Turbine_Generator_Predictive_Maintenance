@@ -1,0 +1,37 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            // Example LSTM input (you can change this)
+            double[] inputSequence = {1.0, 2.0, 3.0};
+            String jsonInput = Arrays.toString(inputSequence);
+
+            // Command: python predict.py "[1.0, 2.0, 3.0]"
+            ProcessBuilder pb = new ProcessBuilder("python", "predict.py", jsonInput);
+            pb.redirectErrorStream(true); // combine stderr and stdout
+
+            Process process = pb.start();
+
+            BufferedReader reader = new BufferedReader(
+                new InputStreamReader(process.getInputStream())
+            );
+
+            System.out.println("LSTM Prediction:");
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            int exitCode = process.waitFor();
+            if (exitCode != 0) {
+                System.out.println("Python script exited with code " + exitCode);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
