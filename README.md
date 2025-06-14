@@ -1,23 +1,48 @@
-Predictive Maintenance Dashboard for Wind TurbinesThis repository contains the complete end-to-end pipeline for a predictive maintenance solution for wind turbine generators. The project covers everything from initial data exploration and model training in a Jupyter Notebook to a fully interactive web-based dashboard built with Streamlit for real-time forecasting.1. Project MotivationThe primary goal of this project is to leverage time series forecasting to predict the future health of wind turbine components. By accurately forecasting key indicators like degradation and temperature, we can derive the Remaining Useful Life (RUL) of the equipment. This allows for a shift from traditional, schedule-based maintenance to a more efficient and cost-effective predictive maintenance strategy, minimizing downtime and preventing catastrophic failures.This repository demonstrates a complete workflow, making the powerful predictions of a deep learning model accessible to operators and engineers through a user-friendly dashboard.2. Key FeaturesModel Development: A detailed Jupyter Notebook (time_series_model_final.ipynb) provides a full walkthrough of data preprocessing, feature engineering, and the training of a Direct Multi-Step Forecasting BiLSTM model.Interactive Dashboard: A powerful Streamlit application (app.py) serves as the front-end, allowing users to:Derive the RUL of a turbine by forecasting its degradation curve.Forecast a future window of multiple health indicators (degradation, temperature, etc.).Visualize historical data alongside model predictions.Direct Forecasting: The BiLSTM model is designed to predict a long sequence of future data points (e.g., 1200 steps) in a single forward pass, making it highly efficient for generating long-term forecasts.3. Dashboard VisualsHere are some example screenshots from the deployed Streamlit application, showcasing its capabilities.RUL Prediction & Maintenance ForecastThe dashboard takes a history of sensor data, calculates the RUL, and plots the exact point in the future where maintenance is predicted to be required.Caption: Full degradation history with the predicted maintenance point derived from the model's forecast.Component Health Forecasting WindowThe application can also forecast a future window for all key health indicators, plotting them against the historical data.Caption: Forecasting the next 100 steps for temperature_estimated based on historical data.4. Repository StructureThe project is organized into two main parts: the development notebook and the deployment application.FINAL_PROJECT/
-│
-├── README.md                    # This README file
-│
-├── NoteBook&DATA/
-│   ├── DATA/
-│   │   ├── traindata.csv
-│   │   └── testdata.csv
-│   └── time_series_model_final.ipynb   # For model training and experimentation
-│
-└── Dashboard_App/
-    ├── app.py                       # The Streamlit dashboard script
-    ├── main_scaler.joblib           # Scaler produced by the notebook
-    └── model_BiLSTM.pth             # Model produced by the notebook
-5. InstallationStep 1: Clone the repositorygit clone https://github.com/Hachimboua/Dashboard_of_Wind_Turbine_Generator_Predictive_Maintenance.git
-cd FINAL_PROJECT
-Step 2: Install required librariesThis project requires Python 3.8 or newer. You can install all necessary packages using pip:pip install pandas numpy scikit-learn torch matplotlib streamlit plotly joblib jupyter
-6. How to Use the ProjectThe workflow is a two-stage process: first you must train the model using the notebook, and then you can run the dashboard which uses the outputs of that training.Stage 1: Train the Forecasting ModelNavigate to the notebook directory:cd NoteBook&DATA
-Launch Jupyter Notebook:jupyter notebook
-Run the Notebook: In the Jupyter interface, open time_series_model_final.ipynb. Execute all cells from top to bottom. This will perform the complete data processing and model training.Verify Outputs: Upon successful completion, the notebook will save two critical files in the same directory:model_BiLSTM.pth (the trained model weights)main_scaler.joblib (the data scaler)Move Artifacts: This is a crucial step. You must move these two newly created files (model_BiLSTM.pth and main_scaler.joblib) from the NoteBook&DATA/ directory into the Dashboard_App/ directory.Stage 2: Launch the Streamlit DashboardNavigate to the app directory:# From the FINAL_PROJECT root directory:
-cd Dashboard_App
-Run the app: Execute the following command in your terminal.streamlit run app.py
-This will launch the interactive dashboard in your web browser. You can then use the sidebar controls to upload data and generate live forecasts.7. LicenseThis project is licensed under the MIT License.
+# ⚙️ Predictive Maintenance Dashboard for Wind Turbines
+
+This repository contains the complete end-to-end pipeline for a **predictive maintenance solution** designed for wind turbine generators. It includes model development, training, and an interactive dashboard for real-time health forecasting of turbine components.
+
+---
+
+## 📌 Project Motivation
+
+The primary goal is to **predict the Remaining Useful Life (RUL)** of wind turbine components using multivariate time series forecasting. By doing so, maintenance becomes proactive rather than reactive—reducing operational costs and preventing unexpected failures.
+
+---
+
+## 🚀 Key Features
+
+- **Model Development:**  
+  A detailed walkthrough in [`time_series_model_final.ipynb`](./NoteBook&DATA/time_series_model_final.ipynb) covering preprocessing, feature engineering, and training a BiLSTM-based Direct Multi-Step Forecasting model.
+
+- **Interactive Streamlit Dashboard:**  
+  [`app.py`](./Dashboard_App/app.py) enables users to:
+  - Forecast future degradation curves and calculate RUL.
+  - Visualize predicted vs actual sensor data.
+  - Forecast multiple health indicators like temperature, vibration, etc.
+
+- **Efficient Inference:**  
+  The BiLSTM model predicts up to 1200 steps ahead in a single forward pass.
+
+---
+
+## 📊 Dashboard Demonstrations
+
+### 🔧 RUL Prediction & Maintenance Forecast
+
+_Visual showing degradation curve with predicted RUL point_  
+**Image Placeholder:**  
+![RUL Forecast Example](./images/rul_forecast.png)
+
+---
+
+### 🌡️ Component Health Forecasting Window
+
+_Example of forecasting temperature and other features for the next 100 time steps_  
+**Image Placeholder:**  
+![Forecasting Window Example](./images/component_forecast.png)
+
+---
+
+## 🗂️ Repository Structure
+
