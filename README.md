@@ -97,6 +97,22 @@ Move these files to the dashboard directory:
 ```bash
 mv model_BiLSTM.pth main_scaler.joblib ../Dashboard_App/
 ```
+🖥️ Stage 2: Run the Streamlit Dashboard
+Navigate to the dashboard app:
+```bash
+cd ../Dashboard_App
+```
+Launch the app:
+```bash
+streamlit run app.py
+```
+## The app will open in your browser. Upload sensor data and explore forecasts interactively.
+
+📄 License
+This project is licensed under the ENSAM License.
+
+
+
 
 
 
