@@ -46,6 +46,7 @@ _Example of forecasting temperature and other features for the next 100 time ste
 ---
 
 ## 🗂️ Repository Structure
+```bash
 FINAL_PROJECT/
 ├── README.md # This file
 ├── NoteBook&DATA/
@@ -57,7 +58,7 @@ FINAL_PROJECT/
 ├── app.py
 ├── main_scaler.joblib
 └── model_BiLSTM.pth
-
+```
 
 ---
 
